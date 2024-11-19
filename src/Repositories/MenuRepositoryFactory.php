@@ -8,7 +8,7 @@ class MenuRepositoryFactory
 {
     private static ?MenuRepository $instance = null;
 
-    public function getInstance(): MenuRepository
+    public static function getInstance(): MenuRepository
     {
         if (!self::$instance) {
             self::$instance = new MenuRepositoryImpl();
