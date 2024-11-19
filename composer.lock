@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "farhanisty/vetran",
-            "version": "v1.0.3",
+            "version": "v1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/farhanisty/vetran.git",
-                "reference": "63f8a07d686557fe68214f2d72532aa967bf96af"
+                "reference": "8fbf312b96be5d1a71ce0aee39075693fa21f4d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/farhanisty/vetran/zipball/63f8a07d686557fe68214f2d72532aa967bf96af",
-                "reference": "63f8a07d686557fe68214f2d72532aa967bf96af",
+                "url": "https://api.github.com/repos/farhanisty/vetran/zipball/8fbf312b96be5d1a71ce0aee39075693fa21f4d0",
+                "reference": "8fbf312b96be5d1a71ce0aee39075693fa21f4d0",
                 "shasum": ""
             },
             "require": {
@@ -48,9 +48,9 @@
             "description": "Php backend library",
             "support": {
                 "issues": "https://github.com/farhanisty/vetran/issues",
-                "source": "https://github.com/farhanisty/vetran/tree/v1.0.3"
+                "source": "https://github.com/farhanisty/vetran/tree/v1.0.5"
             },
-            "time": "2024-11-19T18:29:13+00:00"
+            "time": "2024-11-19T18:46:07+00:00"
         },
         {
             "name": "graham-campbell/result-type",
