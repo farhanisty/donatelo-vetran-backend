@@ -1,5 +1,6 @@
 <?php
 
+use Farhanisty\DonateloBackend\Repositories\MenuRepositoryFactory;
 use Farhanisty\DonateloBackend\Repositories\MenuRepositoryImpl;
 use Farhanisty\Vetran\Facades\Response;
 use Farhanisty\Vetran\Application;
@@ -33,6 +34,41 @@ $route->get('api/menu', function () use ($app) {
 
     $response
         ->setStatus(Response::OK)
-        ->setBody($menus)
+        ->setBody([
+            'status' => true,
+            'message' => 'OK',
+            'data' => $menus
+        ])
+        ->build();
+});
+
+$route->get('api/menu/:id', function () use ($app) {
+    $response = $app->getResponse()->responseJson();
+
+    $id = $app->getRoute()->input()->inputParameter()['id'];
+
+    $menuRepository = MenuRepositoryFactory::getInstance();
+
+    $menu = $menuRepository->getById($id);
+
+    if (!$menu) {
+        $response
+            ->setStatus(Response::NOT_FOUND)
+            ->setBody([
+                'status' => false,
+                'message' => 'NOT FOUND'
+            ])
+            ->build();
+
+        return;
+    }
+
+    $response
+        ->setStatus(Response::OK)
+        ->setBody([
+            'status' => true,
+            'message' => 'OK',
+            'data' => $menu->toArray()
+        ])
         ->build();
 });
