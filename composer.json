@@ -1,5 +1,12 @@
 {
-    "require": {
-        "farhanisty/vetran": "^1.0"
+  "name": "farhanisty/donatelo-vetran-backend",
+  "description": "part of donatelo project(backend)",
+  "autoload": {
+    "psr-4": {
+      "Farhanisty\\DonateloBackend\\": "src/"
     }
+  },
+  "require": {
+    "farhanisty/vetran": "^1.0"
+  }
 }
