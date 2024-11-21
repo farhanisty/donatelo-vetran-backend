@@ -13,7 +13,7 @@ $dotenv->load();
 $app = new Application();
 $route = $app->getRoute();
 
-header('Access-Control-Allow-Origin: *');
+$app->getResponse()->setHeader('Access-Control-Allow-Origin: *');
 
 $route->get('api/menu', function () use ($app) {
     $menuRepository = new MenuRepositoryImpl();
