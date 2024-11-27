@@ -34,4 +34,21 @@ class MenuRepositoryImpl implements MenuRepository
 
         return new Menu($menu->id, $menu->name, $menu->description, $menu->price, $menu->image_url, $menu->created_at);
     }
+
+    public function getWhereIdIn(array $ids): array
+    {
+        $connection = Connection::getInstance();
+        $placeholders = implode(',', array_fill(0, count($ids), '?'));
+        $stmt = $connection->prepare('SELECT * FROM menus WHERE id IN(' . $placeholders . ')');
+
+        $stmt->execute($ids);
+
+        $rawMenus = $stmt->fetchAll(\PDO::FETCH_CLASS);
+
+        $menus = array_map(function ($menu) {
+            return new Menu($menu->id, $menu->name, $menu->description, $menu->price, $menu->image_url, $menu->created_at);
+        }, $rawMenus);
+
+        return $menus;
+    }
 }

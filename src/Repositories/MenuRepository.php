@@ -9,4 +9,6 @@ interface MenuRepository
     public function getAll(): array;
 
     public function getById(int $id): ?Menu;
+
+    public function getWhereIdIn(array $ids): array;
 }
