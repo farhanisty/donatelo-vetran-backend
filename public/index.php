@@ -2,6 +2,7 @@
 
 use Farhanisty\DonateloBackend\Repositories\MenuRepositoryFactory;
 use Farhanisty\DonateloBackend\Repositories\MenuRepositoryImpl;
+use Farhanisty\DonateloBackend\Services\HandlePaymentService;
 use Farhanisty\Vetran\Facades\Response;
 use Farhanisty\Vetran\Application;
 
@@ -73,4 +74,9 @@ $route->get('api/menu/:id', function () use ($app) {
             'data' => $menu->toArray()
         ])
         ->build();
+});
+
+$route->post('api/payment', function () use ($app) {
+    $handlePaymentService = new HandlePaymentService($app, MenuRepositoryFactory::getInstance());
+    $handlePaymentService->handle();
 });
