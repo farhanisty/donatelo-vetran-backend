@@ -167,16 +167,16 @@
         },
         {
             "name": "farhanisty/vetran",
-            "version": "v1.0.5",
+            "version": "v1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/farhanisty/vetran.git",
-                "reference": "8fbf312b96be5d1a71ce0aee39075693fa21f4d0"
+                "reference": "7920fa49e6d81bf2530a0da7ee9448ca57620c54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/farhanisty/vetran/zipball/8fbf312b96be5d1a71ce0aee39075693fa21f4d0",
-                "reference": "8fbf312b96be5d1a71ce0aee39075693fa21f4d0",
+                "url": "https://api.github.com/repos/farhanisty/vetran/zipball/7920fa49e6d81bf2530a0da7ee9448ca57620c54",
+                "reference": "7920fa49e6d81bf2530a0da7ee9448ca57620c54",
                 "shasum": ""
             },
             "require": {
@@ -207,9 +207,9 @@
             "description": "Php backend library",
             "support": {
                 "issues": "https://github.com/farhanisty/vetran/issues",
-                "source": "https://github.com/farhanisty/vetran/tree/v1.0.5"
+                "source": "https://github.com/farhanisty/vetran/tree/v1.0.6"
             },
-            "time": "2024-11-19T18:46:07+00:00"
+            "time": "2024-11-27T11:50:49+00:00"
         },
         {
             "name": "firebase/php-jwt",
