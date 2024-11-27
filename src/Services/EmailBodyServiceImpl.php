@@ -8,7 +8,8 @@ class EmailBodyServiceImpl implements EmailBodyService
         private string $customerName,
         private string $purchaseDate,
         private string $paymentAmout,
-        private string $whatsappNumber
+        private string $whatsappNumber,
+        private string $token
     ) {}
 
     public function render(): string
@@ -34,6 +35,10 @@ class EmailBodyServiceImpl implements EmailBodyService
                         <tr>
                             <td style="padding: 8px; border: 1px solid #ddd;"><strong>Total Payment:</strong></td>
                             <td style="padding: 8px; border: 1px solid #ddd;">' . $this->paymentAmout . '</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><strong>Token:</strong></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">' . $this->token . '</td>
                         </tr>
                     </table>
 
