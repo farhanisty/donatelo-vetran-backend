@@ -102,7 +102,7 @@ $route->post('api/validate-token', function () use ($app, $route) {
 
     try {
         $decoded = JWT::decode($inputBody['token'], new Key($_ENV['JWT_SECRET_KEY'], 'HS256'));
-    } catch (Firebase\JWT\SignatureInvalidException $e) {
+    } catch (\Exception $e) {
         return $response
             ->setStatus(Response::UNAUTHORIZED)
             ->setBody([
