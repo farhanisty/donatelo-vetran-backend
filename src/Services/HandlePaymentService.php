@@ -3,6 +3,7 @@
 namespace Farhanisty\DonateloBackend\Services;
 
 use Farhanisty\DonateloBackend\Repositories\MenuRepository;
+use Farhanisty\DonateloBackend\Repositories\TokenRepository;
 use Farhanisty\Vetran\Facades\Response;
 use Farhanisty\Vetran\Application;
 use Firebase\JWT\JWT;
@@ -13,13 +14,15 @@ class HandlePaymentService
     private QRCodeGeneratorService $qrGenerator;
     private Application $app;
     private MenuRepository $menuRepository;
+    private TokenRepository $tokenRepository;
 
-    public function __construct(Application $app, MenuRepository $menuRepository)
+    public function __construct(Application $app, MenuRepository $menuRepository, TokenRepository $tokenRepository)
     {
         $this->app = $app;
         $this->menuRepository = $menuRepository;
         $this->sendEmailService = SendEmailServiceFactory::getInstance();
         $this->qrGenerator = QRCodeGeneratorServiceFactory::getInstance();
+        $this->tokenRepository = $tokenRepository;
     }
 
     public function handle()
@@ -42,6 +45,8 @@ class HandlePaymentService
         );
 
         $encodedJwt = JWT::encode($payloadGenerator->generate(), $_ENV['JWT_SECRET_KEY'], 'HS256');
+
+        $this->tokenRepository->create($encodedJwt);
 
         $imageName = $this->qrGenerator->create($encodedJwt);
 
